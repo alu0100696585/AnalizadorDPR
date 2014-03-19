@@ -182,7 +182,7 @@ parse = (input) ->
         left: left
         right: right
     else # Error!
-      throw "Syntax Error. Expected identifier but found " + lookahead + "llll" + lookhead.value + "kkkkkk" +
+      throw "Syntax Error. Expected identifier but found " + 
         (if lookahead then lookahead.value else "end of input") + 
         " near '#{input.substr(lookahead.from)}'"
     result
