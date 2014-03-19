@@ -164,14 +164,14 @@ parse = (input) ->
       result =
         type: "IF"
         left: left
-        right: right
-     else if lookahead and lookahead.type is "BEGIN"
-      match "BEGIN"
-      result = statement()
+        right: rightthen
+    # else if lookahead and lookahead.type is "BEGIN"
+    #  match "BEGIN"
+    #  result = statement()
       #while lookahead and lookahead.type is ";"	
-        match ";"
-        result.push statement()
-      match "END"
+    #    match ";"
+    #    result.push statement()
+    #  match "END"
      else if lookahead and lookahead.type is "WHILE"
       match "WHILE"
       left = condition()
