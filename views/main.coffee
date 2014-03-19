@@ -196,7 +196,7 @@ parse = (input) ->
   term = ->
     result = factor()
     while lookahead and lookahead.type is "MULTDIVOP"
-      type = lookahead.type
+      type = lookahead.value
       match "MULTDIVOP"
       right = factor()
       result =
