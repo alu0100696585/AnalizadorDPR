@@ -168,9 +168,9 @@ parse = (input) ->
     else if lookahead and lookahead.type is "BEGIN"
       match "BEGIN"
       result = [statement()]
-      #while lookahead and lookahead.type is ";"	
-      match ";"
-      result.push statement()
+      while lookahead and lookahead.type is ";"	
+        match ";"
+        result.push statement()
       match "END"
      else if lookahead and lookahead.type is "WHILE"
       match "WHILE"
