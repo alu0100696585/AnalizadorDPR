@@ -167,7 +167,7 @@ parse = (input) ->
         right: right
     else if lookahead and lookahead.type is "BEGIN"
       match "BEGIN"
-      result = statement()
+      result = [statement()]
       #while lookahead and lookahead.type is ";"	
       match ";"
       result.push statement()
