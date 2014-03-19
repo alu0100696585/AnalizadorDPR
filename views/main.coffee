@@ -38,12 +38,16 @@ String::tokens = ->
     COMPARISONOPERATOR: /[<>=!]=|[<>]/g
     ONECHAROPERATORS: /([*\/=()&|;:,{}[\]])/g
     ADDMINUSOP: /[+-]/g
-   #MULTDIVOP: /[*\/]/g
+    MULTDIVOP: /[*\/]/g
 
   RESERVED_WORD = 
-    p:    "P"
+    p: "P"
     "if": "IF"
     then: "THEN"
+    "while": "WHILE"
+    "call": "CALL"
+    "begin": "BEGAN"
+    "end": "END"
   
   # Make a token object.
   make = (type, value) ->
@@ -98,6 +102,9 @@ String::tokens = ->
     else if m = tokens.ADDMINUSOP.bexec(this)
       result.push make("ADDMINUSOP", getTok())
     
+    else if m = tokens.MULTDIVOP.bexec(this)
+      result.push make("MULTDIVOP", getTok())
+      
     # comparison operator
     else if m = tokens.COMPARISONOPERATOR.bexec(this)
       result.push make("COMPARISON", getTok())
@@ -188,11 +195,12 @@ parse = (input) ->
 
   term = ->
     result = factor()
-    if lookahead and lookahead.type is "*"
-      match "*"
-      right = term()
+    while lookahead and lookahead.type is "MULTDIVOP"
+      type = lookahead.type
+      match "MULTDIVOP"
+      right = factor()
       result =
-        type: "*"
+        type: type
         left: result
         right: right
     result
