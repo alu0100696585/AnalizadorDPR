@@ -172,6 +172,9 @@ parse = (input) ->
         match ";"
         result.push statement()
       match "END"
+    else if lookahead and lookahead.type is "CALL"
+      match "CALL"
+      result = statement()
      else if lookahead and lookahead.type is "WHILE"
       match "WHILE"
       left = condition()
