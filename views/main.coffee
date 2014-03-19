@@ -174,7 +174,18 @@ parse = (input) ->
       match "END"
     else if lookahead and lookahead.type is "CALL"
       match "CALL"
-      result = statement()
+      if lookahead and lookahead.type is "ID"
+      left =
+        type: "ID"
+        value: lookahead.value
+
+      match "ID"
+      match "="
+      right = expression()
+      result =
+        type: "="
+        left: left
+        right: right
      else if lookahead and lookahead.type is "WHILE"
       match "WHILE"
       left = condition()
