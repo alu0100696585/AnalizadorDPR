@@ -164,7 +164,7 @@ parse = (input) ->
       result =
         type: "IF"
         left: left
-        right: rightthen
+        right: right
     # else if lookahead and lookahead.type is "BEGIN"
     #  match "BEGIN"
     #  result = statement()
