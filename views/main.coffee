@@ -128,7 +128,7 @@ parse = (input) ->
       lookahead = tokens.shift()
       lookahead = null  if typeof lookahead is "undefined"
     else # Error. Throw exception
-      throw "Syntax Error. Expected #{t} found '" + 
+      throw "Syntax Errorsadasd. Expected #{t} found '" + 
             lookahead.value + "' near '" + 
             input.substr(lookahead.from) + "'"
     return
