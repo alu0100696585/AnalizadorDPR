@@ -36,7 +36,7 @@ String::tokens = ->
     ONELINECOMMENT: /\/\/.*/g
     MULTIPLELINECOMMENT: /\/[*](.|\n)*?[*]\//g
     COMPARISONOPERATOR: /[<>=!]=|[<>]/g
-    ONECHAROPERATORS: /([*\/=()&|;:,{}[\]])/g
+    ONECHAROPERATORS: /([*\/=()\.&|;:,{}[\]])/g
     ADDMINUSOP: /[+-]/g
     MULTDIVOP: /[*\/]/g
 
