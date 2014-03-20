@@ -138,7 +138,7 @@ parse = (input) ->
     if lookahead and lookahead.type is "."
       match "."
     else
-      throw "Syntax Error. Expected '.' at end" + lookahead + "lll" + lookahead.type + "aouihqirub"
+      throw "Syntax Error. Expected '.' at end" + lookahead.type + "aouihqirub"
     result
 
   block = ->
@@ -199,25 +199,26 @@ parse = (input) ->
        match ";"
 
    proceed = ->
-     result = null
-     match "PROCEDURE"
-     if lookahead and lookahead.type is "ID"
-       value = lookahead.value
-       match "ID"
-       match ";"
-       result =
-         type: "Procedure"
-         value: value
-         left: block()
-       match ";"
-     else # Error!
-       throw "Syntax Error. Expected ID but found " + 
-             (if lookahead then lookahead.value else "end of input") + 
-             " near '#{input.substr(lookahead.from)}'"
-     result
-
-     resultado.push statement()
-     resultado
+      result = null
+      match "PROCEDURE"
+      if lookahead and lookahead.type is "ID"
+        value = lookahead.value
+        match "ID"
+        match ";"
+        result =
+          type: "Procedure"
+          value: value
+          left: block()
+        match ";"
+      else # Error!
+        throw "Syntax Error. Expected ID but found " + 
+              (if lookahead then lookahead.value else "end of input") + 
+              " near '#{input.substr(lookahead.from)}'"
+      result
+    while lookahead and lookahead.type is "PROCEDURE"
+      resultado.push proceed()
+    resultado.push statement()
+    resultado
 
   statements = ->
     result = [statement()]
