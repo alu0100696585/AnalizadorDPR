@@ -200,7 +200,6 @@ parse = (input) ->
 
    proceed = ->
      result = null
-     if 
      match "PROCEDURE"
      if lookahead and lookahead.type is "ID"
        value = lookahead.value
@@ -218,7 +217,7 @@ parse = (input) ->
      result
 
      resultado.push statement()
-     resultado  
+     resultado
 
   statements = ->
     result = [statement()]
