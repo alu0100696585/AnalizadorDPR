@@ -84,10 +84,15 @@ nav a.current {
     color: $red;
   }
   input {
-    background: $red url(/images/like.png) 0 2px no-repeat;
-    border: darken($red, 10%) 1px solid;
-    height: 28px;
-    padding-left: 24px;
+    z-index: 999;
+    line-height: 0;
+    font-size: 50px;
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity = 0);-ms-filter: "alpha(opacity=0)";
+    margin: 0;
+    padding:0;
+    left:0;
   }
 }
 
