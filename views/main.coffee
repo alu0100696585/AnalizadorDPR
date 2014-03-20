@@ -265,7 +265,7 @@ parse = (input) ->
       match "END"
     else if lookahead and lookahead.type is "CALL"
       match "CALL"
-       left =
+      left =
         type: "ID"
         value: lookahead.value
 
