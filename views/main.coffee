@@ -134,7 +134,6 @@ parse = (input) ->
     return
 
   program = -> 
-    match "PROGRAM"
     result = block()
     
     if lookahead and lookahead.type is "."
@@ -270,12 +269,6 @@ parse = (input) ->
         value: lookahead.value
 
       match "ID"
-      match "="
-      right = expression()
-      result =
-        type: "="
-        left: left
-        right: right
      else if lookahead and lookahead.type is "WHILE"
       match "WHILE"
       left = condition()
