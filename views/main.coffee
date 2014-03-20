@@ -269,6 +269,10 @@ parse = (input) ->
         value: lookahead.value
 
       match "ID"
+      result =
+        type: "CALL"
+        left: left
+ 
      else if lookahead and lookahead.type is "WHILE"
       match "WHILE"
       left = condition()
