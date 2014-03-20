@@ -10,6 +10,6 @@ suite('Analizador sintactico ', function() {
 	result = _error;
 	result = "<div class=\"error\">" + result + "</div>";
       }
-      assert.deepEqual(result, );
+      assert.deepEqual(result, "" );
     });
 }
