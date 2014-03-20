@@ -47,7 +47,7 @@ get '/grammar' do
 end
 
 get '/index' do
-  slim :index
+  erb :index
 end
 
 not_found do
