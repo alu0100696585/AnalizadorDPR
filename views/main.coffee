@@ -52,6 +52,7 @@ String::tokens = ->
     "var": "VAR"
     "const": "CONST"
     "procedure": "PROCEDURE"
+    "program": "PROGRAM"
   
   # Make a token object.
   make = (type, value) ->
@@ -133,6 +134,7 @@ parse = (input) ->
     return
 
   program = -> 
+    match "PROGRAM"
     result = block()
     
     if lookahead and lookahead.type is "."
