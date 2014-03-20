@@ -215,8 +215,8 @@ parse = (input) ->
                (if lookahead then lookahead.value else "end of input") + 
                " near '#{input.substr(lookahead.from)}'"
        result
-       while lookahead and lookahead.type is "PROCEDURE"
-         resultado.push proceed()
+    while lookahead and lookahead.type is "PROCEDURE"
+      resultado.push proceed()
     resultado.push statement()
     resultado
 
