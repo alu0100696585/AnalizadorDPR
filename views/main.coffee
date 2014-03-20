@@ -265,25 +265,17 @@ parse = (input) ->
       match "END"
     else if lookahead and lookahead.type is "CALL"
       match "CALL"
-      if lookahead and lookahead.type is "ID"	#se tiene que comprobar que lo siguiente que viene es una ID
-           left =
-             type: "ID"
-             value: lookahead.value
-           match "ID"
-           match "="
-           if lookahead and lookahead.type is "NUM"	# y si despues viene un numero 
-             right =
-               type: "NUM"
-               value: lookahead.value
-             match "NUM"
-           else # Error!
-             throw "Syntax Error. Expected NUM but found " + 
-                   (if lookahead then lookahead.value else "end of input") + 
-                   " near '#{input.substr(lookahead.from)}'"
-         else # Error!
-           throw "Syntax Error. Expected ID but found " + 
-                 (if lookahead then lookahead.value else "end of input") + 
-                 " near '#{input.substr(lookahead.from)}'"
+       left =
+        type: "ID"
+        value: lookahead.value
+
+      match "ID"
+      match "="
+      right = expression()
+      result =
+        type: "="
+        left: left
+        right: right
      else if lookahead and lookahead.type is "WHILE"
       match "WHILE"
       left = condition()
