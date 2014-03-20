@@ -1,0 +1,15 @@
+  meta [http-equiv="Content-Type" content="text/html; charset=UTF-8"]
+  meta [name="viewport" content="width=device-width, initial-scale=1.0"]
+  link [rel="stylesheet" href="mocha.css"]
+  
+    h1 
+      |  Pruebas Mochas
+    br
+    div#mocha
+    script[src="mocha.js"]
+    script [src="chai.js"]
+    script 
+      |  mocha.setup('tdd')
+    script[src="test.js]
+    script
+      |  mocha.run()
