@@ -217,8 +217,8 @@ parse = (input) ->
        result
        while lookahead and lookahead.type is "PROCEDURE"
          resultado.push proceed()
-       resultado.push statement()
-       resultado
+    resultado.push statement()
+    resultado
 
   statements = ->
     result = [statement()]
