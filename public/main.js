@@ -1,8 +1,5 @@
-var prueba, r;
-prueba = function(r) {
-  var main, parse;
 
-  main = function() {
+  main = function(r) {
     var result, source;
     source = r;
     try {
@@ -11,11 +8,7 @@ prueba = function(r) {
       result = _error;
       result = "<div class=\"error\">" + result + "</div>";
     }
-    return r = result;
-  };
-
-  window.onload = function() {
-    return PARSE.onclick = main;
+    return result;
   };
 
   Object.constructor.prototype.error = function(message, t) {
@@ -401,4 +394,3 @@ prueba = function(r) {
     return tree;
   };
 
-};

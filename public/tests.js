@@ -2,8 +2,9 @@ var assert = chai.assert;
 
 suite('Analizador sintactico ', function() {
     test('Factor', function() {
-      var r = "A = 35."
-      prueba(r);
-      assert.deepEqual(r, "" );
+      var r = "A = 35.";
+      var resultado;
+      resultado = main(r);
+      assert.deepEqual(resultado, "" );
     });
 });
