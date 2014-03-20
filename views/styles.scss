@@ -96,8 +96,10 @@ nav a.current {
   height: 20px;
   padding: 5px;
 
+  file{ Opacity: 0 }
+
   button, input {
-    color: $black;
+    color: $white;
     float: left;
     list-style: none;
 
