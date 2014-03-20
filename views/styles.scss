@@ -1,7 +1,7 @@
 $red: #903;
 $black: #444;
 $white: #fff;
-$blue: #2E9AFE;
+$blue: #58D3F7;
 $main-font: Helvetica, Arial, sans-serif;
 
 body {
@@ -20,6 +20,10 @@ header h1 {
   background: black url(/images/logo.png) no-repeat;
   background-size:5% 70%;
   padding-left: 84px;
+}
+
+textarea {
+  background: #58D3F7;
 }
 
 @mixin tabs ($background: blue, $color: yellow) {
