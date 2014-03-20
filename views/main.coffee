@@ -193,10 +193,10 @@ parse = (input) ->
                  (if lookahead then lookahead.value else "end of input") + 
                  " near '#{input.substr(lookahead.from)}'"
          result
-       resultarr.push variable()
+       resultado.push variable()
        while lookahead and lookahead.type is ","
          match ","
-         resultarr.push variable()
+         resultado.push variable()
        match ";"
 
    proceed = ->
