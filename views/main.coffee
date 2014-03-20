@@ -49,6 +49,9 @@ String::tokens = ->
     "call": "CALL"
     "begin": "BEGIN"
     "end": "END"
+    "var": "VAR"
+    "const": "CONST"
+    "procedure": "PROCEDURE"
   
   # Make a token object.
   make = (type, value) ->
@@ -129,6 +132,92 @@ parse = (input) ->
             input.substr(lookahead.from) + "'"
     return
 
+  program = -> 
+    result = block()
+    
+    if lookahead and lookahead.type is "."
+      return result
+    else 
+      throw "Syntax Error. Expected '.' at end"
+
+  block = ->
+    resultado = []
+
+    if lookahead and lookahead.type is "CONST"
+       match "CONST"
+       constante = ->
+         result = null
+         if lookahead and lookahead.type is "ID"	#se tiene que comprobar que lo siguiente que viene es una ID
+           left =
+             type: "C.ID"
+             value: lookahead.value
+           match "ID"
+           match "="
+           if lookahead and lookahead.type is "NUM"	# y si despues viene un numero 
+             right =
+               type: "NUM"
+               value: lookahead.value
+             match "NUM"
+           else # Error!
+             throw "Syntax Error. Expected NUM but found " + 
+                   (if lookahead then lookahead.value else "end of input") + 
+                   " near '#{input.substr(lookahead.from)}'"
+         else # Error!
+           throw "Syntax Error. Expected ID but found " + 
+                 (if lookahead then lookahead.value else "end of input") + 
+                 " near '#{input.substr(lookahead.from)}'"
+         result =
+           type: "="
+           left: left
+           right: right
+         result
+       resultado.push constante()
+       while lookahead and lookahead.type is ","
+         match ","
+         resultado.push constante()
+       match ";"
+    
+    if lookahead and lookahead.type is "VAR"
+       match "VAR"
+       variable = ->
+         result = null
+         if lookahead and lookahead.type is "ID"
+           result =
+             type: "Var ID"
+             value: lookahead.value
+           match "ID"
+         else # Error!
+           throw "Syntax Error. Expected ID but found " + 
+                 (if lookahead then lookahead.value else "end of input") + 
+                 " near '#{input.substr(lookahead.from)}'"
+         result
+       resultarr.push variable()
+       while lookahead and lookahead.type is ","
+         match ","
+         resultarr.push variable()
+       match ";"
+
+   proceed = ->
+     result = null
+     match "PROCEDURE"
+     if lookahead and lookahead.type is "ID"
+       value = lookahead.value
+       match "ID"
+       match ";"
+       result =
+         type: "Procedure"
+         value: value
+         left: block()
+       match ";"
+     else # Error!
+       throw "Syntax Error. Expected ID but found " + 
+             (if lookahead then lookahead.value else "end of input") + 
+             " near '#{input.substr(lookahead.from)}'"
+     result
+
+     resultado.push statement()
+     resultado  
+
   statements = ->
     result = [statement()]
     while lookahead and lookahead.type is ";"
@@ -174,17 +263,25 @@ parse = (input) ->
       match "END"
     else if lookahead and lookahead.type is "CALL"
       match "CALL"
-      left =
-        type: "ID"
-        value: lookahead.value
-
-      match "ID"
-      match "="
-      right = expression()
-      result =
-        type: "="
-        left: left
-        right: right
+      if lookahead and lookahead.type is "ID"	#se tiene que comprobar que lo siguiente que viene es una ID
+           left =
+             type: "ID"
+             value: lookahead.value
+           match "ID"
+           match "="
+           if lookahead and lookahead.type is "NUM"	# y si despues viene un numero 
+             right =
+               type: "NUM"
+               value: lookahead.value
+             match "NUM"
+           else # Error!
+             throw "Syntax Error. Expected NUM but found " + 
+                   (if lookahead then lookahead.value else "end of input") + 
+                   " near '#{input.substr(lookahead.from)}'"
+         else # Error!
+           throw "Syntax Error. Expected ID but found " + 
+                 (if lookahead then lookahead.value else "end of input") + 
+                 " near '#{input.substr(lookahead.from)}'"
      else if lookahead and lookahead.type is "WHILE"
       match "WHILE"
       left = condition()
