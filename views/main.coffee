@@ -134,7 +134,7 @@ parse = (input) ->
     return
 
   program = ->
-    result = statement()
+    result = block()
     if lookahead and lookahead.type is "."
       match "."
     else
