@@ -133,13 +133,13 @@ parse = (input) ->
             input.substr(lookahead.from) + "'"
     return
 
-  program = -> 
+  program = ->
     result = block()
-    
     if lookahead and lookahead.type is "."
-      return result
-    else 
+      match "."
+    else
       throw "Syntax Error. Expected '.' at end"
+    result
 
   block = ->
     resultado = []
