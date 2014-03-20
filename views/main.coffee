@@ -294,10 +294,10 @@ parse = (input) ->
     if lookahead and lookahead.type is "ODD"
       type = lookahead.value
       match "ODD"
-      left = expression()
+      right = expression()
       result =
         type: type
-        left: left
+        right: left
     else 
       left = expression()
       type = lookahead.value
