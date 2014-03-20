@@ -1,2 +1,23 @@
-a = 4*2;
-if a > 6 then p a
+const
+  m =  7,
+  n = 85;
+ 
+var
+  x, y, z, q, r;
+ 
+procedure divide;
+var w;
+begin
+  r = x;
+  q = 0;
+  w = y;
+  while odd w  do w = 2 * w;
+  while w > y do begin
+    q = 2 * q;
+    w = w / 2 / 4;
+    if w <= r then begin
+      r = r - w;
+      q = q + 1 - 2 - 3
+    end
+  end
+end;
