@@ -89,14 +89,12 @@ nav a.current {
 .loadfile {
   background-color: none;
   border-radius: 5px;
-  border: 2px solid #DDD;
+  border: none;
   line-height: 80px;
   
   width: 75%;
   height: 20px;
   padding: 5px;
-
-  file{ Opacity: 0 }
 
   button, input {
     color: $white;
