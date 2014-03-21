@@ -26,7 +26,7 @@ suite('Analizador sintactico ', function() {
       var r = "if A == 7 then L = (4 / 5).";
       var resultado;
       resultado = main(r);
-      assert.equal(resultado, "[\n  {\n     \"type\": \"IF\",\n    \"left\": {\n      \"type\": \"==\",\n      \"left\": {\n        \"type\": \"ID\",\n        \"value\": \"A\"\n      },\n      \"right\": {\n        \"type\": \"NUM\",\n        \"value\": 7\n      }\n    },\n    \"right\": {\n      \"type\": \"=\",\n      \"left\": {\n        \"type\": \"ID\",\n        \"value\": \"L\"\n      },\n      \"right\": {\n        \"type\": \"/\",\n        \"left\": {\n          \"type\": \"NUM\",\n          \"value\": 4\n        },\n        \"right\": {\n          \"type\": \"NUM\",\n          \"value\": 5\n        }\n      }\n    }\n  }\n]" );
+      assert.equal(resultado, '[\n  {\n    "type": "IF",\n    "left": {\n      "type": "==",\n      "left": {\n        "type": "ID",\n        "value": "A"\n      },\n      "right": {\n        "type": "NUM",\n        "value": 7\n      }\n    },\n    "right": {\n      "type": "=",\n      "left": {\n        "type": "ID",\n        "value": "L"\n      },\n      "right": {\n        "type": "/",\n        "left": {\n          "type": "NUM",\n          "value": 4\n        },\n        "right": {\n          "type": "NUM",\n          "value": 5\n        }\n      }\n    }\n  }\n]' );
     });
     
     test('Expresion', function() {
@@ -47,7 +47,7 @@ suite('Analizador sintactico ', function() {
       var r = "A = 35 * 6.";
       var resultado;
       resultado = main(r);
-      assert.equal(resultado, "[\n  {\n    \"type\": \"=\",\n    \"left\": {\n      \"type\": \"ID\",\n      \"value\": \"A\"\n    },\n    \"right\": {\n      \"type\": \"NUM\",\n      \"value\": 35\n    }\n  }\n]" );
+      assert.equal(resultado, '[\n  {\n    "type": "=",\n    "left": {\n      "type": "ID",\n      "value": "A"\n    },\n    "right": {\n      "type": "*",\n      "left": {\n        "type": "NUM",\n        "value": 35\n      },\n      "right": {\n        "type": "NUM",\n        "value": 6\n      }\n    }\n  }\n]' );
     });
     
     test('Error', function() {
