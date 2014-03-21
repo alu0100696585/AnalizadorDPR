@@ -24,6 +24,13 @@ header h1 {
 
 textarea {
   background: #58D3F7;
+  scrollbar-face-color: $blue 
+  scrollbar-highlight-color: $blue 
+  scrollbar-shadow-color: $blue  	//- Indica el color de la sombra de la barra desplazadora.
+  scrollbar-3dlight-color: $blue   	//- Indica el color del relieve de la barra desplazadora.
+  scrollbar-arrow-color: black		//- Indica el color de las flechas de la barra desplazadora.
+  scrollbar-track-color: $blue 		//- Indica el color del fondo de la barra desplazadora.
+  scrollbar-drakshadow-color: $blue 	//- Indica el color de la sombra más oscura de la barra desplazadora.
 }
 
 @mixin tabs ($background: blue, $color: yellow) {
