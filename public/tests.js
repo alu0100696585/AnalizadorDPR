@@ -2,7 +2,7 @@ var assert = chai.assert;
 
 suite('Analizador sintactico ', function() {
     test('Program', function() {
-      var r = "varA = 35 while a <= 4 do a = a - 1 - 1 end.";
+      var r = "while a <= 4 do a = a - 1 - 1.";
       var resultado;
       resultado = main(r);
       assert.equal(resultado, "");
