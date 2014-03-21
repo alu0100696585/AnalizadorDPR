@@ -24,14 +24,26 @@ header h1 {
 
 textarea {
   background: #58D3F7;
-  scrollbar-face-color: $blue; 
-  scrollbar-track-color: $blue; 
-  scrollbar-arrow-color: $blue; 
-  scrollbar-highlight-color: $blue; 
-  scrollbar-shadow-color: $blue; 
-  scrollbar-3dlight-color: $blue; 
-  scrollbar-darkshadow-color: $blue; 
 }
+
+#OUTPUT {
+    background-color: #eee; 
+    border-style:solid;
+    border-width:5px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    width: 80%;
+    float: right; margin-right: 100px; margin-top: 10px;
+}
+
+#OUTPUT:hover {
+        opacity: 0.6; 
+	position: relative;
+	right: 10px;
+	transition: ease-in all 300ms;
+	-moz-transition: ease-in all 300ms;
+	-webkit-transition: ease-in all 300ms;
+} 
 
 @mixin tabs ($background: blue, $color: yellow) {
   ul {
