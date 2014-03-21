@@ -40,27 +40,26 @@ ol
     |  Productions: 
     ol
       li
-        |  program $ \rightarrow$ block $"."$
+        |  program $ \rightarrow$ block $.$
       li
-        |  block $ \rightarrow$ $[$ $CONST$ $ID$ $=$ $NUM$ ${$ $,$ $ID$ $=$ $NUM$ $}$ $;$ $]$
-        br 
-        | $[$ $VAR$ $ID$ ${$ $,$ $ID$ $}$ $;$ $]$ ${$ $PROCEDURE$ $ID$ $;$ block $;$ $}$ statement
+        |  block $ \rightarrow$ $[ CONST ID = NUM { , ID = NUM } ; ]$
+        | $[ VAR ID { , ID } ; ] { PROCEDURE ID ;$ block $; }$ statement
       li
-        |  statement $ \rightarrow$ $ID$ $=$ expression 
+        |  statement $ \rightarrow ID =$ expression 
         br
-	|  $\vert$ $P$ expression 
+	|  $\vert P$ expression 
         br
         |  $ \vert$ $IF$ condition $THEN$ statement
         br
-        |  $ \vert$ $CALL$ $ID$
+        |  $ \vert$ $CALL ID$
         br
-        |  $ \vert$ $BEGIN$ statement $;$ ${$ statement $}$ $END$
+        |  $ \vert BEGIN$ statement $; {$ statement $} END$
         br
-        |  $ \vert$ $WHILE$ condition $DO$ statement
+        |  $ \vert WHILE$ condition $DO$ statement
       li
         | condition $ \rightarrow$ expression $( == | != | < | <= | > | >= )$ expression 
         br
-        | $ \vert$ $ODD$ expression
+        | $ \vert ODD$ expression
       li
         |  expression $ \rightarrow$ term $+|-$ expression 
         br
@@ -70,11 +69,11 @@ ol
         br
         |  $\vert$ factor 
       li
-        |  factor $ \rightarrow$ $($ expression $)$ 
+        |  factor $ \rightarrow ($ expression $)$ 
         br
-        |  $\vert$ $ID$ 
+        |  $\vert ID$ 
         br
-        |  $\vert$ $NUM$ 
+        |  $\vert NUM$ 
   li
     |  Start symbol: $program$ 
 br
