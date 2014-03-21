@@ -9,7 +9,7 @@ suite('Analizador sintactico ', function() {
     });
     
     test('Block', function() {
-      var r = "const R = 7, Q = 78 ;.";
+      var r = "const m =  7 , y = 0 ; n = 85.";
       var resultado;
       resultado = main(r);
       assert.equal(resultado, "");
