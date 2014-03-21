@@ -33,13 +33,14 @@ ol
 
 ol
   li
-    |  $\Sigma = \{ ;, =, ID, P, IF, THEN, CONST, ODD, PROCEDURE, WHILE, DO, VAR,  <, >, <=, >=, ==, !=,  +, *, (, ), NUM, . \}$, 
+    |  $\Sigma = \{ ; =, ID, P, IF, THEN, <, >, <=, >=, ==, !=,  +, *, (, ), NUM \}$, 
   li
-    |  $V = \{ program, block, statement, condition, expression, term, factor \}$ 
+    |  $V = \{ statements, statement, condition, expression, term, factor \}$ 
   li
     |  Productions: 
     ol
       li
+<<<<<<< HEAD
         |  program $ \rightarrow$ block "."
       li
         |  block $ \rightarrow$ [ CONST ID $=$ NUM { "," ID $=$ NUM } ";" ] [ VAR ID { "," ID } ";" ] { PROCEDURE ID ";" block ";" } statement
@@ -53,8 +54,22 @@ ol
         |  term $ \rightarrow$ factor $*|/$ term   $\vert$ factor 
       li
         |  factor $ \rightarrow$ $($ expression $)$ $\vert$ ID $\vert$ NUM 
+=======
+        |  statements $ \rightarrow$ statement ';' statements $\vert$ statement 
+      li
+        |  statement $ \rightarrow$ ID '=' expression $\vert$ P expression 
+        |  $ \vert$ IF condition THEN statement 
+      li
+        | condition $ \rightarrow$ expression ('=='|'!='|'<'|'<='|'>'|'>=') expression 
+      li
+        |  expression $ \rightarrow$ term '+' expression $\vert$ term 
+      li
+        |  term $ \rightarrow$ factor '*' term $\vert$ factor 
+      li
+        |  factor $ \rightarrow$ '(' expression ')' $\vert$ ID $ \vert$ NUM 
+>>>>>>> parent of 2812e44... Espacios y gramatica
   li
-    |  Start symbol: $program$ 
+    |  Start symbol: $statements$ 
 br
 br
 br
