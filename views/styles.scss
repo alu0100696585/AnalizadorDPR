@@ -110,6 +110,7 @@ nav a.current {
     color: $white;
     text-align: center;
     font-weight: bolder;
+    float: right;
   }
 
   input[type="file"] { 
@@ -117,7 +118,8 @@ nav a.current {
     -webkit-opacity:0; 
     filter:alpha(opacity=0); 
     padding:6px;
-    width:200px; 
+    width:200px;  
+    float: right;
   }
 
   button, input {
@@ -136,6 +138,7 @@ nav a.current {
 }
 
 .archivo{
+   float: right;
    font-family: $main-font;
 }
    
