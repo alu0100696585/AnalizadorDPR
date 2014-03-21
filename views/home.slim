@@ -19,7 +19,7 @@ p Esta web se encarga de crear un ejemplo de parser predictivo
       br
       div 
         .archivo
-          | Seleccione un archivo expecifico si quiere.
+          |       Seleccionar un archivo(opcional).
       label name="Examinar..." class="Selboton"
           | Examinar...
           input [name="file" type="file"]
@@ -49,6 +49,7 @@ p Esta web se encarga de crear un ejemplo de parser predictivo
           else { alert("Failed to load file"); }
         }
 br
-
+br
+br
 input#PARSE.mylink[class="parseboton"value="parse" type="button"]
 pre#OUTPUT
