@@ -27,9 +27,10 @@ textarea {
 }
 
 #OUTPUT {
-    background-color: #eee; 
+    background-color: $white; 
     border-style:solid;
     border-width:5px;
+    border-color:$white
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     width: 80%;
@@ -37,7 +38,7 @@ textarea {
 }
 
 #OUTPUT:hover {
-        opacity: 0.6; 
+        opacity: 0.8; 
 	position: relative;
 	right: 10px;
 	transition: ease-in all 300ms;
