@@ -48,9 +48,9 @@ ol
       li
         | condition $ \rightarrow$ expression $( == | != | < | <= | > | >= )$ expression  $ \vert$ ODD expression
       li
-        |  expression $ \rightarrow$ term $+|-$ expression $\vert$ term 
+        |  expression $ \rightarrow$ term $( + | - )$ expression $\vert$ term 
       li
-        |  term $ \rightarrow$ factor $*|/$ term   $\vert$ factor 
+        |  term $ \rightarrow$ factor $( * | / )$ term   $\vert$ factor 
       li
         |  factor $ \rightarrow$ $($ expression $)$ $\vert$ ID $\vert$ NUM 
   li
