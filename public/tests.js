@@ -7,7 +7,7 @@ suite('Analizador sintactico ', function() {
       resultado = main(r);
       assert.equal(resultado, '[\n  {\n    "type": "WHILE",\n    "left": {\n      "type": "<=",\n      "left": {\n        "type": "ID",\n        "value": "a"\n      },\n      "right": {\n        "type": "NUM",\n        "value": 4\n      }\n    },\n    "right": {\n      "type": "=",\n      "left": {\n        "type": "ID",\n        "value": "a"\n      },\n      "right": {\n        "type": "-",\n        "left": {\n          "type": "-",\n          "left": {\n            "type": "ID",\n            "value": "a"\n          },\n          "right": {\n            "type": "NUM",\n            "value": 1\n          }\n        },\n        "right": {\n          "type": "NUM",\n          "value": 1\n        }\n      }\n    }\n  }\n]');
     });
-    
+     
     test('Block', function() {
       var r = "const m =  7 , y = 0 ; n = 85.";
       var resultado;

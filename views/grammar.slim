@@ -33,27 +33,50 @@ ol
 
 ol
   li
-    |  $\Sigma = \{ ; =, ID, P, IF, THEN, <, >, <=, >=, ==, !=,  +, *, (, ), NUM \}$, 
+    |  $\Sigma = \{ ;, =, ID, P, IF, THEN, CONST, ODD, PROCEDURE, WHILE, DO, VAR,  <, >, <=, >=, ==, !=,  +, *, (, ), NUM, . \}$, 
   li
-    |  $V = \{ statements, statement, condition, expression, term, factor \}$ 
+    |  $V = \{ program, block, statement, condition, expression, term, factor \}$ 
   li
     |  Productions: 
     ol
       li
-        |  statements $ \rightarrow$ statement ';' statements $\vert$ statement 
+        |  program $ \rightarrow$ block $"."$
       li
-        |  statement $ \rightarrow$ ID '=' expression $\vert$ P expression 
-        |  $ \vert$ IF condition THEN statement 
+        |  block $ \rightarrow$ $[$ $CONST$ $ID$ $=$ $NUM$ ${$ $,$ $ID$ $=$ $NUM$ $}$ $;$ $]$
+        br 
+        | $[$ $VAR$ $ID$ ${$ $,$ $ID$ $}$ $;$ $]$ ${$ $PROCEDURE$ $ID$ $;$ block $;$ $}$ statement
       li
-        | condition $ \rightarrow$ expression ('=='|'!='|'<'|'<='|'>'|'>=') expression 
+        |  statement $ \rightarrow$ $ID$ $=$ expression 
+        br
+	|  $\vert$ $P$ expression 
+        br
+        |  $ \vert$ $IF$ condition $THEN$ statement
+        br
+        |  $ \vert$ $CALL$ $ID$
+        br
+        |  $ \vert$ $BEGIN$ statement $;$ ${$ statement $}$ $END$
+        br
+        |  $ \vert$ $WHILE$ condition $DO$ statement
       li
-        |  expression $ \rightarrow$ term '+' expression $\vert$ term 
+        | condition $ \rightarrow$ expression $( == | != | < | <= | > | >= )$ expression 
+        br
+        | $ \vert$ $ODD$ expression
       li
-        |  term $ \rightarrow$ factor '*' term $\vert$ factor 
+        |  expression $ \rightarrow$ term $+|-$ expression 
+        br
+        |  $\vert$ term 
       li
-        |  factor $ \rightarrow$ '(' expression ')' $\vert$ ID $ \vert$ NUM 
+        |  term $ \rightarrow$ factor $*|/$ term 
+        br
+        |  $\vert$ factor 
+      li
+        |  factor $ \rightarrow$ $($ expression $)$ 
+        br
+        |  $\vert$ $ID$ 
+        br
+        |  $\vert$ $NUM$ 
   li
-    |  Start symbol: $statements$ 
+    |  Start symbol: $program$ 
 br
 br
 br
