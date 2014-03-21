@@ -46,34 +46,24 @@ ol
         | [ VAR ID { , ID } ; ] { PROCEDURE ID ;$  block  $; }$ statement
       li
         |  statement $ \rightarrow ID =$ expression 
-      br
 	|  $\vert P$ expression 
-      br
-        |  $ \vert$ $IF$ condition $THEN$ statement
-      br
-        |  $ \vert$ $CALL ID$
-      br
-        |  $ \vert BEGIN$ statement $; {$ statement $} END$
-      br
-        |  $ \vert WHILE$ condition $DO$ statement
+        |  $ \vert  IF$ condition $THEN$ statement
+        |  $ \vert$ $CALL ID
+        |   \vert BEGIN$ statement $; {$ statement $} END
+        |   \vert WHILE$ condition $DO$ statement
       li
         | condition $ \rightarrow$ expression $( == | != | < | <= | > | >= )$ expression 
-      br
         | $ \vert ODD$ expression
       li
         |  expression $ \rightarrow$ term $+|-$ expression 
-      br
         |  $\vert$ term 
       li
         |  term $ \rightarrow$ factor $*|/$ term 
-      br
         |  $\vert$ factor 
       li
-        |  factor $ \rightarrow ($ expression $)$ 
-      br
-        |  $\vert ID$ 
-      br
-        |  $\vert NUM$ 
+        |  factor $ \rightarrow ($ expression $)  
+        |  \vert ID 
+        |  \vert NUM$ 
   li
     |  Start symbol: $program$ 
 br
