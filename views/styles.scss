@@ -24,7 +24,13 @@ header h1 {
 
 textarea {
   background: #58D3F7;
-  scrollbar-base-color: #ff0000; 
+  scrollbar-face-color: $blue; 
+  scrollbar-track-color: $blue; 
+  scrollbar-arrow-color: $blue; 
+  scrollbar-highlight-color: $blue; 
+  scrollbar-shadow-color: $blue; 
+  scrollbar-3dlight-color: $blue; 
+  scrollbar-darkshadow-color: $blue; 
 }
 
 @mixin tabs ($background: blue, $color: yellow) {
