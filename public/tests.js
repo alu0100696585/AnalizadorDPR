@@ -5,6 +5,6 @@ suite('Analizador sintactico ', function() {
       var r = "A = 35.";
       var resultado;
       resultado = main(r);
-      assert.deepEqual(r, "" );
+      assert.equal(resultado, "" );
     });
 });
