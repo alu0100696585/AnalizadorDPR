@@ -106,6 +106,14 @@ nav a.current {
   height: 20px;
   padding: 5px;
 
+  input[type="file"] { 
+    -moz-opacity:0; 
+    -webkit-opacity:0; 
+    filter:alpha(opacity=0); 
+    padding:6px;
+    width:200px; 
+  }
+
   button, input {
     color: $white;
     float: left;
