@@ -139,7 +139,7 @@ parse = (input) ->
     if lookahead and lookahead.type is "."
       match "."
     else
-      throw "Syntax Error. Expected '.' at end" + lookahead.type + "aouihqirub"
+      throw "Syntax Error. Expected '.' at end"
     result
 
   block = ->
