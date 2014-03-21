@@ -239,3 +239,23 @@ nav a.current {
 	position:relative;
 	top:1px;
 }
+
+#OUTPUT {
+    background-color: #eee; 
+    border-style:solid;
+    border-width:5px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    width: 80%;
+    float: right; margin-right: 100px; margin-top: 10px;
+}
+
+#OUTPUT:hover {
+        opacity: 0.8; 
+	position: relative;
+	right: 10px;
+	transition: ease-in all 300ms;
+	-moz-transition: ease-in all 300ms;
+	-webkit-transition: ease-in all 300ms;
+} 
+
