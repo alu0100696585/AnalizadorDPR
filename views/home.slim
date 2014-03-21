@@ -1,8 +1,8 @@
-p This website contains a simple example of a predictive parser
+p Esta web se encarga de crear un ejemplo de parser predictivo
 /img src="/images/st.gif" alt="Syntax Tree"
 #header.header
   p
-    | Load example to parse
+    | Cargar un fichero para su posterior parseo.
   div
     textarea#original[autofocus cols="80" rows="5"]
   br
@@ -16,10 +16,9 @@ p This website contains a simple example of a predictive parser
         | example3
       button#exampleerr[class="Selboton" type="button" onclick="dump('/examples/example_err.txt');"]
         | example_err
-      br
-      br
-      div
-        | Seleccione un archivo expecifico si quiere.
+      div 
+        .archivo
+          | Seleccione un archivo expecifico si quiere.
       label name="Examinar..." class="Selboton"
           | Examinar...
           input [name="file" type="file"]
