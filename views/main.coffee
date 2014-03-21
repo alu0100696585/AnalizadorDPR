@@ -296,7 +296,7 @@ parse = (input) ->
       right = expression()
       result =
         type: "ODD"
-        right: left
+        right: right
     else 
       left = expression()
       type = lookahead.value
