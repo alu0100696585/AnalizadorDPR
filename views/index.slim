@@ -8,6 +8,6 @@ h1 Aqui hay cosas
 script src="chai.js" 
 script src="mocha.js" 
 javascript:
-  | mocha.setup('tdd')%script{:src => "tests.js"}
+  mocha.setup('tdd')%script{:src => "tests.js"}
 javascript:
-  | mocha.run();
+  mocha.run();
