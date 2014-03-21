@@ -173,7 +173,6 @@ parse = (input) ->
            left: left
            right: right
          result
-       resultado.push constante()
        while lookahead and lookahead.type is ","
          match ","
          resultado.push constante()
