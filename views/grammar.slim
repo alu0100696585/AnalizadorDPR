@@ -33,43 +33,50 @@ ol
 
 ol
   li
-    |  $\Sigma = \{ ; =, ID, P, IF, THEN, <, >, <=, >=, ==, !=,  +, *, (, ), NUM \}$, 
+    |  $\Sigma = \{ ;, =, ID, P, IF, THEN, CONST, ODD, PROCEDURE, WHILE, DO, VAR,  <, >, <=, >=, ==, !=,  +, *, (, ), NUM, . \}$, 
   li
-    |  $V = \{ statements, statement, condition, expression, term, factor \}$ 
+    |  $V = \{ program, block, statement, condition, expression, term, factor \}$ 
   li
     |  Productions: 
     ol
       li
-<<<<<<< HEAD
-        |  program $ \rightarrow$ block "."
+        |  program $ \rightarrow$ block $"."$
       li
-        |  block $ \rightarrow$ [ CONST ID $=$ NUM { "," ID $=$ NUM } ";" ] [ VAR ID { "," ID } ";" ] { PROCEDURE ID ";" block ";" } statement
+        |  block $ \rightarrow$ $[$ $CONST$ $ID$ $=$ $NUM$ ${$ $,$ $ID$ $=$ $NUM$ $}$ $;$ $]$
+        br 
+        | $[$ $VAR$ $ID$ ${$ $,$ $ID$ $}$ $;$ $]$ ${$ $PROCEDURE$ $ID$ $;$ block $;$ $}$ statement
       li
-        |  statement $ \rightarrow$ ID $=$ expression $\vert$ P expression $ \vert$ IF condition THEN statement $ \vert$ CALL ID $ \vert$ BEGIN statement ; { statement } END $ \vert$ WHILE condition DO statement
+        |  statement $ \rightarrow$ $ID$ $=$ expression 
+        br
+	|  $\vert$ $P$ expression 
+        br
+        |  $ \vert$ $IF$ condition $THEN$ statement
+        br
+        |  $ \vert$ $CALL$ $ID$
+        br
+        |  $ \vert$ $BEGIN$ statement $;$ ${$ statement $}$ $END$
+        br
+        |  $ \vert$ $WHILE$ condition $DO$ statement
       li
-        | condition $ \rightarrow$ expression $( == | != | < | <= | > | >= )$ expression  $ \vert$ ODD expression
+        | condition $ \rightarrow$ expression $( == | != | < | <= | > | >= )$ expression 
+        br
+        | $ \vert$ $ODD$ expression
       li
-        |  expression $ \rightarrow$ term $+|-$ expression $\vert$ term 
+        |  expression $ \rightarrow$ term $+|-$ expression 
+        br
+        |  $\vert$ term 
       li
-        |  term $ \rightarrow$ factor $*|/$ term   $\vert$ factor 
+        |  term $ \rightarrow$ factor $*|/$ term 
+        br
+        |  $\vert$ factor 
       li
-        |  factor $ \rightarrow$ $($ expression $)$ $\vert$ ID $\vert$ NUM 
-=======
-        |  statements $ \rightarrow$ statement ';' statements $\vert$ statement 
-      li
-        |  statement $ \rightarrow$ ID '=' expression $\vert$ P expression 
-        |  $ \vert$ IF condition THEN statement 
-      li
-        | condition $ \rightarrow$ expression ('=='|'!='|'<'|'<='|'>'|'>=') expression 
-      li
-        |  expression $ \rightarrow$ term '+' expression $\vert$ term 
-      li
-        |  term $ \rightarrow$ factor '*' term $\vert$ factor 
-      li
-        |  factor $ \rightarrow$ '(' expression ')' $\vert$ ID $ \vert$ NUM 
->>>>>>> parent of 2812e44... Espacios y gramatica
+        |  factor $ \rightarrow$ $($ expression $)$ 
+        br
+        |  $\vert$ $ID$ 
+        br
+        |  $\vert$ $NUM$ 
   li
-    |  Start symbol: $statements$ 
+    |  Start symbol: $program$ 
 br
 br
 br
